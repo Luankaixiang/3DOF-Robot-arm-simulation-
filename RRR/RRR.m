@@ -160,9 +160,13 @@ L(2)=Link([0 0 L_2 0]);
 L(3)=Link([0 0 L_3 0 ]);
  
 Robot=SerialLink(L);
-Robot.name='RRR_Robot';
+Robot.name='RRR-Robot';
 Robot.plot([Th_1 Th_2 Th_3]);
 
+T=Robot.fkine([Th_1 Th_2 Th_3]);
+handles.Pos_X.String=num2str(floor(T(1,4)));
+handles.Pos_Y.String=num2str(floor(T(2,4)));
+handles.Pos_Z.String=num2str(floor(T(3,4)));
 
 
 function Pos_X_Callback(hObject, eventdata, handles)
@@ -250,7 +254,7 @@ L(2) = Link([0 0 L_2 0]);
 L(3) = Link([0 0 L_3 0]);
 
 Robot = SerialLink(L);
-Robot.name = 'RRR_Robot';
+Robot.name = 'RRR-Robot';
 
 T = [ 1 0 0 PX;
       0 1 0 PY;
